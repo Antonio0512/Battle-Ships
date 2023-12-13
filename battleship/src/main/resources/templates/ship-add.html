@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Ship Add</title>
-        <th:block th:insert="/fragments/head" />
+        <th:block th:insert="~{/fragments/head}" />
     </head>
     <body class="body-main">
         <header>
-            <th:block th:insert="/fragments/navigation" />
+            <th:block th:insert="~{/fragments/navigation}" />
         </header>
         <main role="main">
             <div class="jumbotron">
@@ -41,7 +41,7 @@
                                 />
                                 <small
                                     id="nameHelpInline"
-                                    class="bg-danger text-light rounded invalid-feedback" 
+                                    class="bg-danger text-light rounded invalid-feedback"
                                 >
                                     Name must be between 2 and 10 characters.
                                 </small>
@@ -127,7 +127,9 @@
                                     th:field="*{category}"
                                     th:errorclass="is-invalid"
                                 >
-                                    <option value="" selected>Category</option>
+                                    <option value="-1" selected>
+                                        Category
+                                    </option>
                                     <option value="0">BATTLE</option>
                                     <option value="1">CARGO</option>
                                     <option value="2">PATROL</option>
@@ -148,8 +150,9 @@
                 </div>
             </div>
         </main>
-        <footer class="container text-white">
-            <p>&copy;SoftUni Spring Team 2021. All rights reserved.</p>
-        </footer>
+        <footer
+            th:insert="~{/fragments/navigation}"
+            class="container text-white"
+        ></footer>
     </body>
 </html>

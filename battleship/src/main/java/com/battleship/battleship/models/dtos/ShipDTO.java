@@ -1,34 +1,30 @@
 package com.battleship.battleship.models.dtos;
 
-
-import java.time.LocalDate;
-
-import com.battleship.battleship.models.enums.CategoryEnum;
-
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PastOrPresent;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
+import com.battleship.battleship.models.Ship;
 
 public class ShipDTO {
-    @Size(min = 2, max = 10)
-    @NotBlank
+    private long id;
+
     private String name;
 
-    @Positive
-    private long health;
+    private int health; 
 
-    @Positive
-    private long power;
+    private int power;
     
-    @PastOrPresent
-    private LocalDate created;
+    public ShipDTO(Ship ship) {
+        this.id = ship.getId();
+        this.name = ship.getName();
+        this.health = ship.getHealth();
+        this.power = ship.getPower();
+    }
 
-    @NotNull
-    private CategoryEnum category;
+    public long getId() {
+        return id;
+    }
 
-    public ShipDTO() {}
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -38,35 +34,22 @@ public class ShipDTO {
         this.name = name;
     }
 
-    public long getHealth() {
+    public int getHealth() {
         return health;
     }
 
-    public void setHealth(long health) {
+    public void setHealth(int health) {
         this.health = health;
     }
 
-    public long getPower() {
+    public int getPower() {
         return power;
     }
 
-    public void setPower(long power) {
+    public void setPower(int power) {
         this.power = power;
     }
 
-    public LocalDate getCreated() {
-        return created;
-    }
+    
 
-    public void setCreated(LocalDate created) {
-        this.created = created;
-    }
-
-    public CategoryEnum getCategory() {
-        return category;
-    }
-
-    public void setCategory(CategoryEnum category) {
-        this.category = category;
-    }
 }

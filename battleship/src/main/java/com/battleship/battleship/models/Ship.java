@@ -28,7 +28,7 @@ public class Ship {
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false, unique = true)
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public Ship() {
